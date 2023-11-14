@@ -6,7 +6,9 @@
 // copied, modified, or distributed except according to those terms.
 
 use crate::spinwait::SpinWait;
-//use crate::thread_parker::{ThreadParker, ThreadParkerT, UnparkHandleT};
+#[cfg(not(windows))]
+use crate::thread_parker::{ThreadParker, ThreadParkerT, UnparkHandleT};
+#[cfg(windows)]
 use crate::thread_parker::ThreadParker;
 use core::{
     cell::Cell,

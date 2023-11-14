@@ -4,7 +4,9 @@
 // http://apache.org/licenses/LICENSE-2.0> or the MIT license <LICENSE-MIT or
 // http://opensource.org/licenses/MIT>, at your option. This file may not be
 // copied, modified, or distributed except according to those terms.
-//use crate::thread_parker::{ThreadParker, ThreadParkerT, UnparkHandleT};
+#[cfg(not(windows))]
+use crate::thread_parker::{ThreadParker, ThreadParkerT, UnparkHandleT};
+#[cfg(windows)]
 use crate::thread_parker::ThreadParker;
 use crate::util::UncheckedOptionExt;
 use crate::word_lock::WordLock;
